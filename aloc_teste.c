@@ -97,14 +97,22 @@ void liberaFim(No *cabeca){
     //assim pego elemento anterior apagado, e coloco como nulo o campor próximo
     anterior->proximo = NULL;
 } 
-
+void liberaInicio(No *cabeca){
+    //Tem que criar a variável anterior com nó anterior para manter a integridade da cadeia
+    No *anterior = cabeca;
+    No *atual = cabeca->proximo;
+    printf("Elemento Removido:%d\n", atual->conteudo);
+    free(atual);
+    //assim pego elemento anterior apagado, e coloco como nulo o campor próximo
+    anterior->proximo = NULL;
+} 
 //procedimento de buscar
 void buscar(No *cabeca, int valor){
     No *atual = cabeca->proximo;
     int encontrado = 0;
     while(atual!=NULL){
         if (atual->conteudo == valor){
-            printf("\nElemento %d da lista removido: %06x;\n", atual->conteudo, atual->proximo);
+            printf("\nElemento %d da lista buscado: %06x;\n", atual->conteudo, atual->proximo);
             encontrado = 1; // 1 funciona com true;
             break;
         }
@@ -116,10 +124,10 @@ void buscar(No *cabeca, int valor){
 }
 
 //Função de buscar que retorna um ponteiro
-No *pesquisar(No *ini, int valor){
+No* pesquisar(No *ini, int valor){
     No *p;
     p = ini->proximo;
-    while(p!==NULL && p->conteudo != valor){
+    while(p!=NULL && p->conteudo != valor){
         p = p->proximo;
     }
     return p;

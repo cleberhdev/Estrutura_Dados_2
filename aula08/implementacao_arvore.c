@@ -8,9 +8,9 @@ typedef struct no No;
 //conteudo, sub-arvore esquerda e sub-arvore de direita
 No * criar(char *c, No *e, No *d){
     No *arv = (No*) malloc(sizeof(No));
-    arv -> conteudo = c;
-    arv-> sae = e;
-    arv-> sad = d;
+    arv->conteudo = c;
+    arv->sae = e;
+    arv->sad = d;
     return arv;
 }
 

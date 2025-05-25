@@ -33,11 +33,26 @@ void exibirPilha(No *topo){
         printf("Celula %p -> %d;\n", p, p->conteudo);
     }
 }
+
+No* buscarElemento(No *topo, int valor){
+    if(topo != NULL){
+        No *p;
+        for(p = topo; p != NULL; p = p->proximo){
+            if(p->conteudo == valor){
+                return p;
+            }
+        }
+    }
+    return NULL;
+}
 int main(){
     No *topo = NULL;
     inserirPilha(&topo, 2);
     inserirPilha(&topo, 3);
     inserirPilha(&topo, 4);
-    exibirPilha(&topo);
+    exibirPilha(topo);//quando mando neste formato, estou mandando já segundo o tipo, se mandasse com &, ia mandar o endereço do ponteiro a ser mudado
+
+    No *valor_buscado = buscarElemento(topo, 4);
+    printf("\n %p -> %d", valor_buscado, valor_buscado->conteudo);
     return 0;
 }

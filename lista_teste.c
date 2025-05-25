@@ -8,7 +8,7 @@ struct no{
 typedef struct no No;
 
 //Faça um função que insira elementos em uma lista dinamica
-void inserirLista(No **inicio, int valor){
+void inserirLista(No *inicio, int valor){
     No *novo = (No*) malloc(sizeof(No));
     
     novo->conteudo = valor;
@@ -60,7 +60,8 @@ No* buscarElemento(No *inicio, int valor){
 }
 
 int main(){
-    No *inicio = NULL;
+    No inicio;
+    inicio.proximo = NULL;
 
     inserirLista(&inicio, 16);
     inserirLista(&inicio, 32);

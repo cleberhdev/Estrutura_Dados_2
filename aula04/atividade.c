@@ -15,7 +15,7 @@ void insere(int x, No *p){
     novo.proximo = p -> proximo; // seta quando é ponteiro
     p-> proximo = &novo;
 }
-
+// 1. A seguinte versão de insere funciona? Justifique.
 // 2. Observe a imagem na dentro da pasta e responda, de forma técnica, onde a estrutura
 // acima é iniciado e finalizada?
 //Nó cabeça é para estruturar inicio da estrutura, em quem ela referencia o elemento próximo para inserção dos elementos, e no fim o campo próximo é nulo, logo tem que falar no campo próximo para justificar.

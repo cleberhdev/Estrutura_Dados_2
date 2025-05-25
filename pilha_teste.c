@@ -23,6 +23,20 @@ void exibirPilha(No *inicio){
     }
 }
 
+void apagarPilha(No *ini){
+    if(ini->proximo != NULL){
+        No *p;
+        for(p = ini->proximo; p != NULL; p = p->proximo){
+            No *atual = ini->proximo;
+            No *sucessor = atual->proximo;
+            free(atual);
+            ini->proximo = sucessor;
+        }
+    }else{
+        printf("Lista Vazia!");
+    }
+}
+
 //faça uma função que exclua um elemento da pilha:
 void excluirPilha(No *inicio){
     if(inicio->proximo != NULL){

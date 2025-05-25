@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct no{
+struct no
+{
     int conteudo;
     struct no *proximo;
 };
@@ -11,9 +12,11 @@ void inserirFila(No **ini, int valor){
     No *novo = (No*) malloc(sizeof(No));
     novo->conteudo = valor;
     novo->proximo = NULL;
+    //primeira diferença, fale do erro de segmetação!
     if(*ini == NULL){
         *ini = novo;
-    }else{
+    }
+    else{
         No *p = *ini;
         while (p->proximo != NULL)
         {
@@ -21,7 +24,7 @@ void inserirFila(No **ini, int valor){
         }
         p->proximo = novo;
     }
-} 
+}
 void excluirElementoFila(No **ini){
     if(*ini != NULL){
         No *remover = *ini;
@@ -35,16 +38,18 @@ void excluirElementoFila(No **ini){
 
 void apagarFila(No **ini){
     if(*ini != NULL){
-        No *p;
+        No *p = *ini;
         for(p = *ini; p != NULL; p = p->proximo){
-            No *elemento_removido = *ini;
-            *ini = elemento_removido->proximo;
-            free(elemento_removido);
+            No *remover = *ini;
+            *ini = remover->proximo;
+            free(remover);
         }
-    }else{
-        printf("Fila Vazia!\n");
+    } else{
+        printf("Lista está vazia!");
     }
 }
+void buscarElemento(No **ini);
+
 void exibirFila(No *inicio){
     if (inicio != NULL)
     {

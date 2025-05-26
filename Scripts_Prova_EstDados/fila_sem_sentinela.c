@@ -48,7 +48,6 @@ void apagarFila(No **ini){
         printf("Lista está vazia!");
     }
 }
-void buscarElemento(No **ini);
 
 void exibirFila(No *inicio){
     if (inicio != NULL)

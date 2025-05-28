@@ -29,18 +29,17 @@ void imprimirLista(No *inicio){
         printf("No endereco %p: %d;\n", (void*)atual, atual->conteudo);
         atual = atual->proximo;
     }
+    if(atual == NULL){
+        printf("\naviso!");
+    }
 }
 
 //Faça uma função que exclua o primeiro elemento de uma lista
-void excluirElemento(No *inicio){
-    if(inicio->proximo != NULL){
-        No *atual = inicio->proximo;
-        No *auxiliar = atual->proximo;
+void excluirElemento(No *ini){
+    if (ini->proximo != NULL) {
+        No *atual = ini->proximo;
+        ini->proximo = atual->proximo;
         free(atual);
-        inicio->proximo = auxiliar;
-    }
-    else{
-        printf("Sua lista está vazia!");
     }
 }
 //Faça uma função que busque um elemento pelo valor, e retorne um No
@@ -59,6 +58,16 @@ No* buscarElemento(No *inicio, int valor){
     return NULL;
 }
 
+void apagarLista(No *ini){
+        No *p = ini->proximo;
+        No * atual;
+        while (p != NULL) {
+            atual = p;
+            p = p->proximo;
+            free(atual);
+        }
+        ini->proximo = NULL;
+}
 int main(){
     No inicio;
     inicio.proximo = NULL;
@@ -68,10 +77,11 @@ int main(){
     inserirLista(&inicio, 48);
     imprimirLista(&inicio);
 
-    No *valor_buscado = buscarElemento(&inicio, 32);
-    printf("\nCelula %p -> %d;\n\n", valor_buscado, valor_buscado->conteudo);
-    excluirElemento(&inicio);
-    excluirElemento(&inicio);
+    // No *valor_buscado = buscarElemento(&inicio, 32);
+    // printf("\nCelula %p -> %d;\n\n", valor_buscado, valor_buscado->conteudo);
+    // excluirElemento(&inicio);
+    // excluirElemento(&inicio);
+    apagarLista(&inicio);
     imprimirLista(&inicio);
     return 0;
 }

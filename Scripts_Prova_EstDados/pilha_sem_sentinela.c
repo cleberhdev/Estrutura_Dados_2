@@ -30,6 +30,9 @@ void excluirElementoPilha(No **topo){
 void exibirPilha(No *topo){
     No *p;
     for(p = topo; p != NULL; p = p->proximo){
+        if(p-> conteudo == valor) {
+            printf("elemento", p->proximo)
+        }
         printf("Celula %p -> %d;\n", p, p->conteudo);
     }
 }

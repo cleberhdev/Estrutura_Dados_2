@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 struct no
 {
@@ -35,18 +36,17 @@ void excluirElementoFila(No **ini){
         printf("Lista Vazia!");
     }
 }
-
-void apagarFila(No **ini){
+void apagar(No **ini){
     if(*ini != NULL){
         No *p = *ini;
-        for(p = *ini; p != NULL; p = p->proximo){
+        while(p != NULL){
             No *remover = *ini;
             *ini = remover->proximo;
             free(remover);
+            p = p->proximo;
         }
-    } else{
-        printf("Lista está vazia!");
     }
+    *ini = NULL;
 }
 
 void exibirFila(No *inicio){
@@ -62,19 +62,26 @@ void exibirFila(No *inicio){
     }
 }
 
+bool lista_vazia(No *ini){
+    if(ini == NULL){
+        return true;
+    }
+    return false;
+}
 int main(){
     No *inicio = NULL;
+    
     inserirFila(&inicio, 15);
     inserirFila(&inicio, 20);
     inserirFila(&inicio, 25);
-
+    printf("%s\n\n", lista_vazia(inicio)? "true":"false");
     exibirFila(inicio);
 
     excluirElementoFila(&inicio);
     printf("\n");
     exibirFila(inicio);
 
-    apagarFila(&inicio);
+    apagar(&inicio);
     printf("\n");
     exibirFila(inicio);
     return 0;

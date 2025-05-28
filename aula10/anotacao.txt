@@ -1,0 +1,10 @@
+main(){
+    Arv *arvore = criar(...);
+    //não precisamos de um método para adicionar um elemento em uma arvore, só faz;
+    arvore->sae->sae = criar(x, 
+                                criar('y', NULL, NULL),
+                                criar('z', NULL, NULL));
+    //obs: desta forma utilza o método criar os elementos;
+}
+
+//terceira foto é dividindo aos poucos para ficar mais simples

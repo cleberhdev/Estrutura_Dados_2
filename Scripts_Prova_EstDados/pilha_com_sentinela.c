@@ -62,6 +62,17 @@ No* buscarElemento(No *inicio, int valor){
     }
     return NULL;
 }
+
+int contarElementos(No *ini){
+    int cont = 0;
+    No *p = ini->proximo;
+    while(p != NULL){
+        p = p->proximo;
+        cont++;
+    }
+    return cont;
+}
+// Faça uma função que remove o elemento determinado dentro de uma lista
 int main(){
     No p;
     p.proximo = NULL;
@@ -69,6 +80,7 @@ int main(){
     inserirPilha(&p, 18);
     inserirPilha(&p, 27);
     inserirPilha(&p, 35);
+    printf("Quantidade de elementos: %d;\n", contarElementos(&p));
 
     exibirPilha(&p);
     printf("\n");

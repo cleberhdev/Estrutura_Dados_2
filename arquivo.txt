@@ -1,0 +1,60 @@
+1. A seguinte versão de insere funciona? Justifique.
+
+void insere(int x, célula *p){
+	celula nova;
+	nova.conteudo = x;
+	nova.prox
+}
+
+2. Critique a seguinte versão da função remove.
+
+void remove(celula *p, celula *ini){
+    celula *morta;
+    morta = p->prox;
+    if(morta->prox == NULL) p->prox = NULL;
+    else p->prox = morta->prox;
+    free(morta);
+}
+
+3. Baseando-se na condificação de uma lista encadeada, implemente uma função que mostre em que condição uma lista estará vazia.
+
+4. De acordo com a questão anterior, explique em que condições a lista estará cheia.
+
+5. Baseando nos métodos de testes realizados em sala de aula, escreva uma função que conte o número de células válidas(com elementos) de uma lista encadeada.
+
+06. Partindo-se do requisito que a questão 03 foi implementada de forma correta, observe o procedimento abaixo e informe qual o seu objetivo. Além disso, disserte, de forma jucinta, sobre o desempenho deste procedimento em uma aplicação.
+
+void DESCUBRA_O_QUE_EU_FACO(int valor, celula *i){
+    celula *aux = malloc(sizeof(celula));
+    aux->conteudo = valor;
+    aux->prox = NULL;
+    celula *p = i->prox;
+    celula *q = i;
+    while (p != NULL){
+        q = p;
+        p = p->prox;
+    }
+    if(q != NULL){
+        p->prox = q->prox;
+        free(q);
+    }
+    q->prox = aux;
+}
+
+07. Observe o procedimento abaixo e informe qual o seu objetivo.
+
+void DESCUBRA_O_QUE_EU_FACO(int x, celula *i){
+    celula *p, *q;
+    p = i;
+    q = i->prox;
+    while(q != NULL && q->conteudo != x){
+        p = q;
+        q = q->prox;
+    }
+    if(q != NULL){
+        p->prox = q->prox;
+        free(q);
+    }
+}
+
+08. Codifique um método capaz de liberar todas as células alocadas para uma lista dinâmica.

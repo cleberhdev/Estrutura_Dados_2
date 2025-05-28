@@ -7,6 +7,20 @@ struct no{
 };
 typedef struct no No;
 
+void exibir(No *inicio){
+    No *p;
+    for(p = inicio->proximo; p != NULL; p = p->proximo){
+        printf("Celula %p -> %d;\n", p, p->conteudo);
+    }
+}
+void excluir(No *ini){
+    if (ini->prox != NULL) {
+        No *atual = ini->prox;
+        ini->prox = atual->prox;
+        free(atual);
+    }
+}
+
 void inserirFila(No **ini, int valor){
     No *novo = (No*) malloc(sizeof(No));
     novo->conteudo = valor;
@@ -45,18 +59,6 @@ void apagarFila(No **ini){
         printf("Fila Vazia!\n");
     }
 }
-void exibirFila(No *inicio){
-    if (inicio != NULL)
-    {
-        No *p;
-        for(p = inicio; p != NULL; p = p->proximo)
-        {
-            printf("Elemento: %d;\n", p->conteudo);
-        }
-    } else{
-        printf("Lista Vazia!");
-    }
-}
 
 int main(){
     No *inicio = NULL;
@@ -64,14 +66,14 @@ int main(){
     inserirFila(&inicio, 20);
     inserirFila(&inicio, 25);
 
-    exibirFila(inicio);
+    exibir(inicio);
 
-    excluirElementoFila(&inicio);
+    excluir(&inicio);
     printf("\n");
-    exibirFila(inicio);
+    exibir(inicio);
 
-    apagarFila(&inicio);
-    printf("\n");
-    exibirFila(inicio);
+    // apagarFila(&inicio);
+    // printf("\n");
+    // exibir(inicio);
     return 0;
 }

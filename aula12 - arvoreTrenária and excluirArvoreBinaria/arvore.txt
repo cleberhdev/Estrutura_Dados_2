@@ -1,0 +1,18 @@
+Segundo a foto, temos fazer a seguinte análise, se fizermos uma arvore genérica que seja capaz de saber a quantidade máxima de filhos.
+Nesse situação, nós só aumentamos mais o nó na estrutura;
+
+Se não... aí tem que mudar a estrutura.
+Um exemplo, é fazer uma estruturapor meio de uma lista, que com dois campos, resolve isso;
+
+Veja a segunda foto:
+-> ver o conceito de lista para arvores para criação de listas genéricas;
+
+Se excluimos um elemento, apagaria todos os nós do nível mais baixo, logo a regra seria garantir que o nós filhos sejam apagados;
+-> Logo deixar essa responsabilidade para o usuário;
+-> Para poder eliminar o elemento, a maior parte das vezes, só faz apontar a raiz para NULL, já que o proximo elemento que for inserido, vai usar-lo;
+-> Utilizando o free, só seria interresante se não for usar, ou também se quiser limpar arvore, aí seria de baixo para cima;
+-> E no método excluir, tem que colocar regras, para ver se faria em cascada ou se vai apagaria só o primeiro a ser buscado, ou todos que são repetidos;
+-> Se quiser deixar mais fácil, faça retornar o endereço o método excluir, aí só pega a variável e dar um fim nele;
+
+
+O que é preciso para ser uma arvore, do seu nó raiz para sua folha, seja um só.
